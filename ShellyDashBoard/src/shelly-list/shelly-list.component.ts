@@ -9,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class ShellyListComponent implements OnInit {
 
  public Shellies: Array<Shelly>;
-
+public columns: number;
   constructor() { }
 
   ngOnInit() {
+    this.columns = (window.innerWidth <= 400) ? 1 : 6;
 this.Shellies=  new Array<Shelly>();
     for(let i:number=0; i<10; i++)
     {
@@ -23,8 +24,14 @@ s.ConnectionState=true;
 this.Shellies.push(s);
    
     }
-    console.log(this.Shellies);
+
     
+  }
+
+  onResize(event)
+  {
+    console.log("resize");
+    this.columns = (event.target.innerWidth <= 400) ? 1 : 6;
   }
 
 }

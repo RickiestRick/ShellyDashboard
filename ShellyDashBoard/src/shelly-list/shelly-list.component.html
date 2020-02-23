@@ -1,8 +1,6 @@
 
 <div *ngFor="let Shelly of Shellies;">
 
-  <mat-card >
-    {{Shelly.Name}}
- <p>lol</p>
-  </mat-card>
+<app-shelly-listitem [MyShelly]="Shelly"> </app-shelly-listitem>
+<br>
 </div>

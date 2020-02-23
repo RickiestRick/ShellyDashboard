@@ -9,14 +9,18 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import { ShellyListComponent } from './../shelly-list/shelly-list.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ShellyListitemComponent } from './../shelly-listitem/shelly-listitem.component';
 @NgModule({
    declarations: [
       AppComponent,
-      ShellyListComponent
+      ShellyListComponent,
+      ShellyListitemComponent
    ],
    imports: [
       BrowserModule,
       MatCardModule,
+      MatGridListModule,
       MatButtonModule,
       MatMenuModule,
       MatToolbarModule,
