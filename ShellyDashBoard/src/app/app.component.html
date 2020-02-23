@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+    <span>Shelly overview</span>
+  
+    <!-- This fills the remaining space of the current row -->
+    <span class="example-fill-remaining-space"></span>
+    <button mat-button [matMenuTriggerFor]="menu"><mat-icon>settings</mat-icon> Settings</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item><mat-icon>add</mat-icon>Add a new Shelly</button>
+      <button mat-menu-item><mat-icon>signal_wifi_4_bar</mat-icon>Connection Settings</button>
+    </mat-menu>
+  </mat-toolbar>   
+<app-shelly-list></app-shelly-list>
