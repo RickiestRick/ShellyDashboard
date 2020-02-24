@@ -1,3 +1,4 @@
+import { ShellyService } from './../Services/ShellyService.service';
 import { PageNotFoundComponent } from './../PageNotFound/PageNotFound.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -51,7 +52,7 @@ const appRoutes: Routes = [
       MatMenuModule,
       BrowserAnimationsModule
    ],
-   providers: [],
+   providers: [ShellyService],
    bootstrap: [
       AppComponent
    ]

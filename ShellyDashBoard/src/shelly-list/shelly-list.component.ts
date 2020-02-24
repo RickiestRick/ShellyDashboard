@@ -14,7 +14,7 @@ public columns: number;
   constructor(private shellyService:ShellyService) { }
 
   ngOnInit() {
-    this.columns = (window.innerWidth <= 400) ? 1 : 2;
+    this.columns = (window.innerWidth <= 400) ? 1 : 4;
 this.Shellies= this.shellyService.GetAllShellies();
 
   }
@@ -22,7 +22,27 @@ this.Shellies= this.shellyService.GetAllShellies();
   onResize(event)
   {
     console.log("resize");
-    this.columns = (event.target.innerWidth <= 400) ? 1 : 2;
+    var width=event.target.innerWidth;
+
+
+    
+    if(width<=400)
+    {
+      this.columns=1;
+    }
+    else if(width<=600)
+    {
+      this.columns=2;
+    }
+    else if(width<=800)
+    {
+      this.columns=3;
+    }
+    else{
+      this.columns=4;
+    }
+  
+ //   this.columns = (event.target.innerWidth <= 400) ? 1 :4;
   }
 
 }
