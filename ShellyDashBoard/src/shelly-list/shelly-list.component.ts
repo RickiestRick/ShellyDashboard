@@ -1,5 +1,6 @@
 import { Shelly } from './../shared/Shelly';
 import { Component, OnInit } from '@angular/core';
+import { ShellyService } from 'src/Services/ShellyService.service';
 
 @Component({
   selector: 'app-shelly-list',
@@ -8,24 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShellyListComponent implements OnInit {
 
- public Shellies: Array<Shelly>;
+ public Shellies: Shelly[];
 public columns: number;
-  constructor() { }
+  constructor(private shellyService:ShellyService) { }
 
   ngOnInit() {
     this.columns = (window.innerWidth <= 400) ? 1 : 2;
-this.Shellies=  new Array<Shelly>();
-    for(let i:number=0; i<10; i++)
-    {
-   var s= new Shelly();
-s.Name="Test"+i;
-s.ShellyID="345893489gj";
-s.ConnectionState=true;
-this.Shellies.push(s);
-   
-    }
+this.Shellies= this.shellyService.GetAllShellies();
 
-    
   }
 
   onResize(event)
