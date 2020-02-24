@@ -1,6 +1,12 @@
+<mat-grid-list [cols]="columns" rowHeight="50vh">
+<div *ngFor="let Shelly of Shellies;" (window:resize)="onResize($event)">
+  
+        <mat-grid-tile>
 
-<div *ngFor="let Shelly of Shellies;">
-
+  
 <app-shelly-listitem [MyShelly]="Shelly"> </app-shelly-listitem>
 <br>
+
+1</mat-grid-tile>
 </div>
+</mat-grid-list>

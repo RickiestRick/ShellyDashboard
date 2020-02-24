@@ -13,7 +13,7 @@ public columns: number;
   constructor() { }
 
   ngOnInit() {
-    this.columns = (window.innerWidth <= 400) ? 1 : 6;
+    this.columns = (window.innerWidth <= 400) ? 1 : 2;
 this.Shellies=  new Array<Shelly>();
     for(let i:number=0; i<10; i++)
     {
@@ -31,7 +31,7 @@ this.Shellies.push(s);
   onResize(event)
   {
     console.log("resize");
-    this.columns = (event.target.innerWidth <= 400) ? 1 : 6;
+    this.columns = (event.target.innerWidth <= 400) ? 1 : 2;
   }
 
 }
