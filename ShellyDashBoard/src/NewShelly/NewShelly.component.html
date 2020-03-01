@@ -1,0 +1,28 @@
+<div class="form-container">
+<form >
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image">   <mat-icon matSuffix>library_add</mat-icon></div>
+    <mat-card-title>Add a new Shelly</mat-card-title>
+</mat-card-header>
+
+<mat-form-field class="full-width">
+  <mat-label>Message</mat-label>
+  <input matInput #message maxlength="256" placeholder="Ex. I need help with...">
+  <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+  <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+</mat-form-field>
+<mat-form-field class="full-width">
+
+
+    <button mat-raised-button color="primary" type="submit"> Create</button>
+  </mat-form-field>
+  </mat-card>
+</form>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Message</mat-label>
+    <input matInput #message maxlength="256" placeholder="Ex. I need help with...">
+    <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+    <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+  </mat-form-field>

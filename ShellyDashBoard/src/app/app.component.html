@@ -1,12 +1,12 @@
 <mat-toolbar color="primary">
-  <mat-icon aria-hidden="false" class="HomeIcon" aria-label="Home">home</mat-icon>
+  <mat-icon  [routerLink]="''" aria-hidden="false" class="HomeIcon" aria-label="Home">home</mat-icon>
     <span>Shelly overview</span>
   
     <!-- This fills the remaining space of the current row -->
     <span class="example-fill-remaining-space"></span>
     <button mat-button [matMenuTriggerFor]="menu"><mat-icon>settings</mat-icon> Settings</button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item><mat-icon>add</mat-icon>Add a new Shelly</button>
+      <button mat-menu-item [routerLink]="'NewShelly'" ><mat-icon>add</mat-icon>Add a new Shelly</button>
       <button mat-menu-item><mat-icon>signal_wifi_4_bar</mat-icon>Connection Settings</button>
     </mat-menu>
   </mat-toolbar>   
