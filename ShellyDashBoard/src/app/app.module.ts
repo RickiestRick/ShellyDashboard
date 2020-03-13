@@ -1,3 +1,4 @@
+
 import { ShellyService } from './../Services/ShellyService.service';
 import { PageNotFoundComponent } from './../PageNotFound/PageNotFound.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,6 +18,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShellyListitemComponent } from './../shelly-listitem/shelly-listitem.component';
 import { NewShellyComponent } from './../NewShelly/NewShelly.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const appRoutes: Routes = [
@@ -52,6 +54,7 @@ const appRoutes: Routes = [
          appRoutes,
          { enableTracing: true } // <-- debugging purposes only
        ),
+       HttpClientModule,
       BrowserModule,
       MatCardModule,
       MatGridListModule,

@@ -1,11 +1,12 @@
-import { ShellyType } from './ShellyType';
-export {ShellyType} from './ShellyType';
+
 
 export class Shelly {
     public Name: string;
-    public ShellyID: string;
+    public ShellyID: number;
 public ConnectionState: boolean;
-public ShellyType: ShellyType;
+public ShellyType: number;
+public IP:string;
+
 
 
 }

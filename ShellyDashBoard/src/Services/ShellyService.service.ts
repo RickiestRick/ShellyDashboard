@@ -1,27 +1,43 @@
+
 import { Shelly } from './../shared/Shelly';
 import { Injectable } from '@angular/core';
-
+import { HttpClient } from '@angular/common/http';
+import {  Observable,Operator } from 'rxjs';
+import { map, retry } from "rxjs/operators";
 @Injectable({
   providedIn: 'root'
 })
 export class ShellyService {
 
-constructor() { }
+private baseURL:string='https:/localhost:44367/api';
+constructor(private httpClient:HttpClient) { }
 
-public  GetAllShellies(): Shelly[]
+public  GetAllShellies(): Observable<Shelly[]>
 {
-var Shellies:Array<Shelly>;
-Shellies= new Array<Shelly>();
-    for(let i:number=0; i<10; i++)
-    {
-   var s= new Shelly();
-s.Name="Test"+i;
-s.ShellyID="345893489gj";
-s.ConnectionState=true;
-Shellies.push(s);
-   
-    }
-    return Shellies;
+  return this.httpClient.get<Shelly[]>(this.baseURL+ '/Shelly/GetShellies').pipe(map(raws=> this.createShellies(raws)));
 }
 
+
+public CheckShellyConnection(shellyID:number) : Observable<boolean>
+{
+  return this.httpClient.get<boolean>(this.baseURL+'/Connection/CheckConnectionStateOfShelly?ID='+shellyID);
+}
+
+
+createShellies(raws: any): Shelly[] {
+var myshellies:Shelly[]= new Array<Shelly>();
+   raws.map(raw => 
+    {
+ var s= new Shelly();
+s.ConnectionState=raw.connectionState,
+s.IP=raw.ip;
+s.ShellyID=raw.shellyID;
+s.Name=raw.name;
+s.ShellyType=raw.shellyType;
+myshellies.push(s);
+    });
+    console.log(myshellies);
+    return myshellies;
+
+}
 }

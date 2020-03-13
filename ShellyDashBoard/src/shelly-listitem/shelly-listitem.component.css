@@ -1,8 +1,43 @@
 
+.MainIcon
+{
+	font-size: 140px;
+	text-align: center;
+	margin-left: 15%;
 
-.mat-card-image{
-    width: 180px;
-    height:180px;
+}
+
+.MainCard :hover
+{
+
+
+}
+
+
+
+
+.InfoText
+{
+	margin-left:10px; 
+
+
+}
+
+.ActionButtons
+{
+	width: 48%;
+	margin-left:3px;
+}
+
+.ShellyName
+{
+	text-align: center;
+font-weight: bold;
+}
+.MainCard
+{
+	width: 200px;
+	height: 350px;
 }
 
 .OfflineState{

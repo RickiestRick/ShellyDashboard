@@ -1,6 +1,7 @@
-import { Shelly } from './../shared/Shelly';
+import { Shelly } from 'src/shared/Shelly';
 import { Component, OnInit } from '@angular/core';
 import { ShellyService } from 'src/Services/ShellyService.service';
+
 
 @Component({
   selector: 'app-shelly-list',
@@ -15,8 +16,24 @@ public columns: number;
 
   ngOnInit() {
     this.columns = (window.innerWidth <= 400) ? 1 : 4;
-this.Shellies= this.shellyService.GetAllShellies();
+this.shellyService.GetAllShellies().subscribe(
+  (data:Shelly[])=> this.Shellies=data
+);
 
+  }
+
+
+  provideBooksFrom(raws: any): Shelly[] {
+
+    return raws.map(raw => 
+      {
+        var s= new Shelly();
+        s.ConnectionState=raw.connectionState,
+  s.IP=raw.ip;
+  s.Name=raw.name;
+  s.ShellyType=raw.shellyType;
+      });
+  
   }
 
   onResize(event)
