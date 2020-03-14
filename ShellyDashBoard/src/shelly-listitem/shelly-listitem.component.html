@@ -5,11 +5,22 @@
     </mat-card-header>
 
     <mat-card-content>
+
       <div class="CardHeader">
-      <h1 class="ShellyName">{{MyShelly.Name}}</h1>
-      <h5 class="ShellyName">{{MyShelly.ShellyID}}</h5>
-      <mat-icon  class="MainIcon" >highlight</mat-icon>
+        
+      
+  
+        <h1 class="ShellyName"><abbr class="ShellyAbbr" [attr.title]="MyShelly.ShellyID">{{MyShelly.Name}}</abbr></h1>
+
+      <button mat-button [matMenuTriggerFor]="menu"> 
+        <mat-icon >keyboard_arrow_down</mat-icon></button>
+       <mat-menu #menu="matMenu">
+        <button mat-menu-item><mat-icon>delete</mat-icon>Delete</button>
+        <button mat-menu-item><mat-icon >block</mat-icon>Block</button>
+       </mat-menu>
+     
     </div>
+    <mat-icon  class="MainIcon" >highlight</mat-icon>
       <div>
    
     <b class="InfoText">IP:</b>{{MyShelly.IP}}
@@ -18,11 +29,11 @@
       <p>
       
       <b class="InfoText">State:</b>Online
-      <mat-icon aria-hidden="false" aria-label="Example home icon" [class.OfflineState]="!MyShelly.ConnectionState" [class.onlineState]="MyShelly.ConnectionState">swap_horizontal_circle</mat-icon>
+      <mat-icon  [class.OfflineState]="!MyShelly.ConnectionState" [class.onlineState]="MyShelly.ConnectionState">swap_horizontal_circle</mat-icon>
         </p>
 
       <div>    
-            <button class="ActionButtons" mat-raised-button color="primary">Delete</button>
+        
             <button   class="ActionButtons" mat-raised-button color="primary">Open-UI</button>
   
       </div>
